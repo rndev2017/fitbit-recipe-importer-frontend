@@ -17,7 +17,7 @@ function Root() {
 
   const [token, setToken] = useState(extractAccessToken())
   const [userId, setUserId] = useState(extractUserId())
-  const auth_link = "https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=238K5F&redirect_uri=http%3A%2F%2Flocalhost%3A3000&scope=nutrition%20profile&expires_in=604800"
+  const auth_link = "https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=238CQ7&redirect_uri=https://fitbit-recipe-importer.netlify.app&scope=nutrition%20profile&expires_in=604800"
 
   if (token == null && userId == null) {
     return (

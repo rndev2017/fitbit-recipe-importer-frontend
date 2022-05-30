@@ -108,7 +108,6 @@ export default function App({ userId, accessToken }) {
     var queries = Object.entries(requiredNutrition)
       .map(([key, value]) => `${value}=${recipe?.nutrition[key].value}`)
     var queryString = queries.join("&")
-    console.log(queryString)
 
     let endpoint = `https://api.fitbit.com/1/user/${userId}/foods.json?name=${recipe?.name}&defaultFoodMeasurementUnitId=${defaultMeasurementId}&defaultServingSize=${1}&calories=${recipe?.nutrition?.calories.value}&description=${recipe?.description}&formType=${formType}&${queryString}`
     fetch(endpoint, {
@@ -157,7 +156,7 @@ export default function App({ userId, accessToken }) {
     }
   
     setLoading(true)
-    fetch(`http://localhost:8000/parse?link=${link}`)
+    fetch(`https://fitbit-recipe-importer.herokuapp.com/parse?link=${link}`)
       .then((response) => response.json())
       .then((body) => {
         if (body.status === 200) {
